@@ -47,13 +47,29 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'cloudinary_storage', #CLOUDINARY
+    'cloudinary',
+    
     'django_cleanup.apps.CleanupConfig',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'django_htmx',
+    
+    "django.contrib.sites",
+    "admin_honeypot",
+    
     'a_home',
     'a_users',
+    'a_plot',
+]
+
+SITE_ID = 1
+
+INTERNAL_IPS = [
+"127.0.0.1",
+"localhost:8000"
 ]
 
 MIDDLEWARE = [
@@ -129,7 +145,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
 
@@ -149,6 +165,14 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUD_NAME'),
+    'API_KEY': env('CLOUD_API_KEY'),
+    'API_SECRET': env('CLOUD_API_SECRET'),
+}
+
 
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_SIGNUP_REDIRECT_URL = "{% url 'account_signup' %}?next={% url 'profile-onboarding' %}"

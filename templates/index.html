@@ -1,19 +1,21 @@
 {% extends 'layouts/blank.html' %}
+{% load static %}
 
-{% block content %} 
 
-    <div class=" px-8 py-10">
-        
-        <!-- Showcase for non-authenticated users -->
-    <div class="mx-auto text-2xl ">
+{% block content %}
+
+<!-- Showcase for non-authenticated users -->
+    <div class="">
         {% if not user.is_authenticated %}
         {% include 'includes/showcase.html' %}
         {% endif %}
+        
     </div>
 
+    <!-- Main section -->
     <main class="grid grid-cols-1 lg:grid-cols-4">
 
-        <div class="col-span-3 p-2 mx-auto bg-slate-300 dark:bg-slate-500">
+        <div class="col-span-3 p-4 mx-auto bg-slate-300 dark:bg-slate-500">
             {% include 'includes/cards.html' %} 
             
         </div>
@@ -23,10 +25,8 @@
         </div>
 
     </main>
-        
 
- 
 
-    </div>
 
-{% endblock %}
+
+{% endblock content %}
