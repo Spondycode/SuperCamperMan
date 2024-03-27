@@ -1,10 +1,10 @@
-{% extends 'base.html' %} 
+{% extends 'layouts/blank.html' %} 
 {% load static %} 
 {% block content %}
 
     <!-- Main section -->
 
-<div class="col-span-3 p-3 bg-slate-300">
+<div class=" card m-4 p-3 bg-slate-200">
             {% include 'includes/cards.html' %}
                 <div class="text-center ">
                     <h3 class="mb-2 text-2xl font-semibold text-center text-blue-800 ">
@@ -50,7 +50,7 @@
                     
                     {% if plot.owner %}
                     <div class="p-3 my-6 rounded-lg mx-14">
-                        <a href="{% url 'user-profile' plot.owner.username %}">
+                        <a href="{% url 'profile' plot.owner.username %}">
                             
                             <p class="text-center"><strong>Plot Poster:</strong> {{ plot.owner.username }} </p>
                         </a>

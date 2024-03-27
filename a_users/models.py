@@ -1,38 +1,7 @@
-# from django.db import models
-# from django.contrib.auth.models import User
-# from django.templatetags.static import static
-
-# class Profile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     image = models.ImageField(upload_to='avatars/', null=True, blank=True)
-#     displayname = models.CharField(max_length=20, null=True, blank=True)
-#     info = models.TextField(null=True, blank=True) 
-    
-#     def __str__(self):
-#         return str(self.user)
-    
-#     @property
-#     def name(self):
-#         if self.displayname:
-#             name = self.displayname
-#         else:
-#             name = self.user.username 
-#         return name
-    
-#     @property
-#     def avatar(self):
-#         try:
-#             avatar = self.image.url
-#         except:
-#             avatar = static('images/avatar.svg')
-#         return avatar
-
-
 from django.db import models
 from django.contrib.auth.models import User
 from django.templatetags.static import static
-from django_resized import ResizedImageField
-
+# from django_resized import ResizedImageField
 
 MODES = (
     ("Hammock", "Hammock"),
@@ -62,13 +31,12 @@ LEVELS = (
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # image = models.ImageField(upload_to='avatars', null=True, blank=True)
-    image = ResizedImageField(size=[600, 600], quality=85, upload_to="avatars" , null=True, blank=True)
+    image = models.ImageField(upload_to='avatars/', null=True, blank=True)
     displayname = models.CharField(max_length=20, null=True, blank=True)
     info = models.TextField(null=True, blank=True)
     realname = models.CharField( max_length=40, null=True, blank=True)
     email = models.EmailField(max_length=254, null=True, unique=True)
-    created = models.DateTimeField(auto_now_add=True)
+    # created = models.DateTimeField(auto_now_add=True)
     nationality = models.CharField(max_length=50, null=True, blank=True)
     campermode = models.CharField(max_length=30, choices=MODES, default="Hammock", null=True, blank=True)
     camperstory = models.TextField(null=True, blank=True)
@@ -76,7 +44,7 @@ class Profile(models.Model):
     level = models.CharField(max_length=30, choices=LEVELS, default="New SuperCamper", null=True, blank=True)
     plot_reports = models.IntegerField(default=0, null=True, blank=True)
     numplots = models.IntegerField(default=0, null=True, blank=True)
-
+    
     def __str__(self):
         return str(self.user)
     
@@ -85,13 +53,14 @@ class Profile(models.Model):
         if self.displayname:
             name = self.displayname
         else:
-            name = self.user.username
+            name = self.user.username 
         return name
     
     @property
     def avatar(self):
         try:
             avatar = self.image.url
-        except Exception:
+        except:
             avatar = static('images/avatar.svg')
         return avatar
+
