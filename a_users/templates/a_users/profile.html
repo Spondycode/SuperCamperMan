@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="max-w-lg mx-auto flex flex-col items-center pt-20 px-4">
+<div class=" card max-w-lg mx-auto flex flex-col items-center pt-20 px-4">
     <img class="w-36 h-36 rounded-full object-cover mb-4" src="{{ profile.avatar }}" />
     <div class="text-center">
         <h1>{{ profile.name }}</h1>
@@ -12,5 +12,24 @@
         {% endif %}  
     </div>
 </div>
+
+<div class="flex flex-col justify-between mx-auto space-y-4  mt-6">
+    {% if profile.level == 'Banned' %}
+    <p class="max-w-3xl p-6 mx-auto text-white bg-red-600 xl:rounded-lg">
+      You can not post here due to previous posts made which were reported to
+      the Admin. Send an email to the Admin to discuss this if you think a mistake was made.
+    </p>
+    {% else %}
+    <a
+      class="btn btn-accent mx-auto w-48"
+      href="{% url 'profile-edit' %}"
+      >Edit Profile</a>
+    <a
+      class="btn btn-secondary mx-auto w-48"
+      href="{% url 'account_change_password' %}"
+      >Password Change</a>
+    {% endif %}
+    <a class="btn btn-primary mx-auto w-48" href="{% url 'home' %}" >Home</a >
+  </div>
 
 {% endblock %}
