@@ -9,6 +9,8 @@
         <ul class="navitems flex items-center justify-center h-full">
             {% if request.user.is_authenticated %}
 
+            <li><a href="{% url 'inbox' %}">Inbox</a></li>
+
             <li x-data="{ dropdownOpen: false }" class="relative">
                 <a @click="dropdownOpen = !dropdownOpen" @click.away="dropdownOpen = false"
                     class="cursor-pointer select-none">

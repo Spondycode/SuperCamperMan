@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'a_home',
     'a_users',
     'a_plot',
+    'a_inbox',
 ]
 
 SITE_ID = 1
@@ -180,3 +181,5 @@ ACCOUNT_SIGNUP_REDIRECT_URL = "{% url 'account_signup' %}?next={% url 'profile-o
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
+
+ACCOUNT_USERNAME_BLACKLIST = ['admin', 'superuser', 'super', 'user', 'staff', 'staffuser', 'staff_user', 'plot', 'category', 'profile', 'profiles', 'userprofile', 'userprofiles', 'users', 'inbox', 'bossman']
