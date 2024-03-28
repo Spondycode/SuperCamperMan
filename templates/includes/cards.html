@@ -25,12 +25,12 @@
 
         {% if plot.owner %}
         <a href="{% url 'profile' plot.owner.username %}">
-        <p class="my-2 btn btn-info mx-auto dark:text-sky-100 flex">
+        <p class="my-2 btn btn-info mx-auto dark:text-sky-100 text-center btn-outline btn-block">
                 User Name - {{ plot.owner }}
             </p>
         </a>
         {% else %}
-        <h3 class="block my-2 btn btn-outline text-blue-900 border-2 btn border-sky-400 dark:text-white ">
+        <h3 class="btn-block my-2 btn btn-outline text-blue-900 border-2 border-sky-400 dark:text-white text-center ">
             No owner</h3>
         
         {% endif %}

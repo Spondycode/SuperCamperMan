@@ -3,10 +3,10 @@
 
         {% if reply.author %}
 
-        <div class="mx-8 mt-6 border-b-2 border-gray-400 bg-slate-300">
+        <div class="mx-8 mt-6  bg-blue-300 rounded-md">
             <div class="flex justify-between mx-8">
-                <p class="p-2 text-sm font-semibold text-gray-600">Reply by: {{ reply.author.username }}</p>
-                <p class="p-2 text-sm font-semibold text-gray-600">{{ reply.created }}</p>
+                <p class="pt-2 text-sm font-semibold text-blue-600">Reply by: {{ reply.author.username }}</p>
+                <p class="pt-2 text-sm font-semibold text-blue-600">{{ reply.created }}</p>
             </div>
         </div>
         {% else %}
@@ -21,7 +21,7 @@
         {% if user.is_authenticated and reply.author == user%}
 
         <div class="flex flex-row-reverse">
-            <a class="p-2 mb-4 mr-8 text-sm border-2 border-red-400 rounded-md btn hover:bg-red-600 text-end hover:text-white" href="{% url 'delete-reply' reply.id %}">Delete Reply</a>
+            <a class="btn btn-sm btn-error mb-2 btn-outline" href="{% url 'delete-reply' reply.id %}">Delete Reply</a>
         </div>
         {% endif %}
 

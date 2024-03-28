@@ -101,3 +101,12 @@ class ReplyCreateForm(ModelForm):
         labels = {
             "body": "",
         }
+        
+        
+class Countries(ModelForm):
+    class Meta:
+        model = Plot
+        fields = ["countries"]
+        labels = {
+            "countries": "",
+        }
