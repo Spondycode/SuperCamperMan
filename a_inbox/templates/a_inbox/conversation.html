@@ -1,6 +1,10 @@
 <div id='conversation' class="col-span-4 sm:col-span-3 opacity-0 flex flex-col bg-white rounded-r-2xl pt-10 relative overflow-y-auto"
 _="on load wait for 5ms then remove .opacity-0">
 
+{% if conversation %}
+  
+
+
 <div class="text-center flex flex-col items-center">
     
     {% for participant in conversation.participants.all %}
@@ -46,5 +50,8 @@ _="on load wait for 5ms then remove .opacity-0">
         <div class="text-white rounded-full">Reply</div>
     </a>
 </div>
- 
+{% else %}
+<div class="h-full flex items-center justify-center text-gray-500 -mt-6 text-center p-10">Select a conversation or create a new message.</div>
+{% endif %}
+
 </div>

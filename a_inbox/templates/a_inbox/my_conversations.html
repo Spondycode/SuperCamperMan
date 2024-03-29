@@ -1,8 +1,8 @@
 <ul id="conversations-list" class="flex flex-col gap-1 divide-y mt-2" >
     
     {% for c in my_conversations %}
-    <li class="rounded-full sm:rounded-lg relative mt-2 sm:mt-0">
-        <a href="" class="flex items-center justify-center lg:justify-normal gap-1 hover:bg-zinc-200 rounded-full sm:rounded-lg p-1.5 sm:p-4 cursor-pointer">
+    <li class="{% if conversation == c %}bg-zinc-200{% endif %} rounded-full sm:rounded-lg relative mt-2 sm:mt-0">
+        <a href="{% url 'inbox' c.id %}" class="flex items-center justify-center lg:justify-normal gap-1 hover:bg-zinc-200 rounded-full sm:rounded-lg p-1.5 sm:p-4 cursor-pointer">
             
             {% for participant in c.participants.all %}
                 {% if participant != request.user %}
