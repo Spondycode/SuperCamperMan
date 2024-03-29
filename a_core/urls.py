@@ -13,6 +13,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', home_view, name="home"),
     path('profile/', include('a_users.urls')),
+    path('inbox/', include('a_inbox.urls')),
     path("", include("a_plot.urls")),
     path('@<username>/', profile_view, name="profile"),
 ]
