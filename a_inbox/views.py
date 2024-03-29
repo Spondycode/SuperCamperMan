@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.db.models import Q
+from a_users.models import Profile
 from .models import *
 
 
@@ -16,3 +19,14 @@ def inbox_view(request, conversation_id=None):
     }
     return render(request, "a_inbox/inbox.html", context)
 
+def search_users(request):
+    letters = request.GET.get('search_user')
+    if len(letters) > 0:
+        profiles = Profile.objects.filter(realname__icontains=letters).exclude(realname=request.user.profile.realname)
+        users_id = profiles.values_list('user', flat=True)
+        users = User.objects.filter(
+            Q(username__icontains=letters) | Q(id__in=users_id)
+            ).exclude(username=request.user.username)
+        return render(request, "a_inbox/list_search_user.html", {"users": users, "profiles": profiles})
+    else:
+        return HttpResponse('')
