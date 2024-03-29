@@ -14,6 +14,7 @@ urlpatterns = [
     path('', home_view, name="home"),
     path('profile/', include('a_users.urls')),
     path("", include("a_plot.urls")),
+    path('inbox/', include("a_inbox.urls")),
     path('@<username>/', profile_view, name="profile"),
 ]
 
