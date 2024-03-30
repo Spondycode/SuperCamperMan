@@ -6,10 +6,12 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from a_users.views import profile_view
+from a_plot.views import *
 from a_home.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    path('bossman/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', home_view, name="home"),
     path('profile/', include('a_users.urls')),
