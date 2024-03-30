@@ -5320,6 +5320,10 @@ input[name="remember"] {
 }
 
 @media (min-width: 1024px) {
+  .lg\:visible {
+    visibility: visible;
+  }
+
   .lg\:order-2 {
     order: 2;
   }
