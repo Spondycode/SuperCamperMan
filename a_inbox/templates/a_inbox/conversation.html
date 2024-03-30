@@ -37,7 +37,7 @@ _="on load wait for 5ms then remove .opacity-0">
                     </div>
                     <div>{{ message.created }}({{ message.created|timesince }})</div>
                 </div>
-                <div>{{ message.body }}</div>
+                <div class="whitespace-pre-wrap">{{ message.body_decrypted }}</div>
             </div>
         </div>
     </li>

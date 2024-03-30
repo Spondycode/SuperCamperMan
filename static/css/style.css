@@ -3960,6 +3960,10 @@ details.collapse summary::-webkit-details-marker {
   white-space: nowrap;
 }
 
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
+
 .text-wrap {
   text-wrap: wrap;
 }
