@@ -1,8 +1,7 @@
-{% extends 'layouts/blank.html' %}
+{% extends 'layouts/box.html' %}
 
 {% block content %}
-<div class="card mx-auto shadow-lg  w-96 lg:w-1/2 mt-4">
-  <div class="flex justify-center mt-4 "><a class="btn btn-primary flex justify-center w-48" href="{% url 'home' %}">Home</a></div>
+<div class="">
   <div class=" card max-w-lg mx-auto flex flex-col items-center pt-14 px-4">
     <img class="w-36 h-36 rounded-full object-cover mb-4" src="{{ profile.avatar }}" />
     <div class="text-center">
