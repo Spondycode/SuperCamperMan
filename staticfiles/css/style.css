@@ -3498,16 +3498,20 @@ details.collapse summary::-webkit-details-marker {
   margin-top: -1.5rem;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 
-.mb-3 {
-  margin-bottom: 0.75rem;
+.mb-20 {
+  margin-bottom: 5rem;
 }
 
-.mb-32 {
-  margin-bottom: 8rem;
+.mb-3 {
+  margin-bottom: 0.75rem;
 }
 
 .mb-4 {
@@ -3560,10 +3564,6 @@ details.collapse summary::-webkit-details-marker {
 
 .mt-10 {
   margin-top: 2.5rem;
-}
-
-.mt-12 {
-  margin-top: 3rem;
 }
 
 .mt-2 {
@@ -3620,11 +3620,6 @@ details.collapse summary::-webkit-details-marker {
 
 .hidden {
   display: none;
-}
-
-.size-4 {
-  width: 1rem;
-  height: 1rem;
 }
 
 .h-10 {
@@ -3769,10 +3764,6 @@ details.collapse summary::-webkit-details-marker {
 
 .max-w-96 {
   max-width: 24rem;
-}
-
-.max-w-lg {
-  max-width: 32rem;
 }
 
 .max-w-md {
@@ -4034,6 +4025,11 @@ details.collapse summary::-webkit-details-marker {
 .border-blue-700 {
   --tw-border-opacity: 1;
   border-color: rgb(29 78 216 / var(--tw-border-opacity));
+}
+
+.border-blue-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(30 64 175 / var(--tw-border-opacity));
 }
 
 .border-blue-900 {
@@ -4465,10 +4461,6 @@ details.collapse summary::-webkit-details-marker {
 
 .pt-10 {
   padding-top: 2.5rem;
-}
-
-.pt-14 {
-  padding-top: 3.5rem;
 }
 
 .pt-2 {
@@ -5360,6 +5352,10 @@ input[name="remember"] {
 
   .lg\:w-10 {
     width: 2.5rem;
+  }
+
+  .lg\:w-4\/5 {
+    width: 80%;
   }
 
   .lg\:min-w-96 {

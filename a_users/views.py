@@ -85,22 +85,48 @@ def user_profile_view(request, username):
 
 
 
+# @login_required
+# def profile_edit_view(request, username):
+#     form = ProfileForm(instance=request.user.profile)
+#     user = User.objects.get(username=username)
+    
+#     if request.method == 'POST':
+#         form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('profile')
+        
+#     if request.path == reverse('profile-onboarding'):
+#         onboarding = True
+#     else:
+#         onboarding = False
+      
+#     return render(request, 'a_users/profile_edit.html', { 'form':form, 'onboarding':onboarding })
+
 @login_required
 def profile_edit_view(request):
-    form = ProfileForm(instance=request.user.profile)  
+    form = ProfileForm(instance=request.user.profile)
     
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             form.save()
-            return redirect('profile')
+            return redirect("profile")
         
-    if request.path == reverse('profile-onboarding'):
-        onboarding = True
+    if request.path == reverse("profile-onboarding"):
+        template = 'a_users/profile_onboarding.html'
     else:
-        onboarding = False
-      
-    return render(request, 'a_users/profile_edit.html', { 'form':form, 'onboarding':onboarding })
+        template = 'a_users/profile_edit.html'
+        
+    return render(request, template, {"form": form})
+
+
+
+
+
+
+
+
 
 
 @login_required
