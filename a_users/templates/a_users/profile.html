@@ -12,16 +12,16 @@
       {% endif %}
     </div>
   </div>
-  
+
   <div class="flex flex-col justify-between mx-auto space-y-4  mt-6">
     {% if profile.level == 'Banned' %}
     <p class="max-w-3xl p-6 mx-auto text-white bg-red-600 xl:rounded-lg">
       You can not post here due to previous posts made which were reported to
       the Admin. Send an email to the Admin to discuss this if you think a mistake was made.
     </p>
-  
+
     {% endif %}
-  
+
     <div x-data="{ modal_open:false }">
       <div class="px-4 py-2 mb-3 shadow-sm bottom-2 right-2">
         <a @click="modal_open = true"
@@ -40,9 +40,9 @@
               <div
                 class="relative overflow-hidden text-left transition-all transform bg-white shadow-xl rounded-2xl sm:my-8 sm:w-full sm:max-w-lg">
                 <div @click.away="modal_open = false" class="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
-  
+
                   {% include 'a_inbox/form_newmessage.html' with recipient=profile.user %}
-  
+
                 </div>
               </div>
             </div>
@@ -50,7 +50,16 @@
         </div>
       </div>
     </div>
+  </div>
+
+
+  
 </div>
-    
+
+
+  <div class="col-span-3 p-4 mx-auto bg-slate-300 dark:bg-slate-500">
+    {% include 'includes/cards.html' %}
+  </div>
+
 
   {% endblock %}
