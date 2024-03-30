@@ -24,7 +24,7 @@
 
 
         {% if plot.owner %}
-        <a href="{% url 'profile' plot.owner.username %}">
+        <a href="{% url 'user-profile' plot.owner.username %}">
         <p class="my-2 btn btn-info mx-auto dark:text-sky-100 text-center btn-outline btn-block">
                 User Name - {{ plot.owner }}
             </p>

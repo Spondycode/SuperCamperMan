@@ -3498,6 +3498,10 @@ details.collapse summary::-webkit-details-marker {
   margin-top: -1.5rem;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -3616,11 +3620,6 @@ details.collapse summary::-webkit-details-marker {
 
 .hidden {
   display: none;
-}
-
-.size-4 {
-  width: 1rem;
-  height: 1rem;
 }
 
 .h-10 {
@@ -4032,6 +4031,11 @@ details.collapse summary::-webkit-details-marker {
   border-color: rgb(29 78 216 / var(--tw-border-opacity));
 }
 
+.border-blue-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(30 64 175 / var(--tw-border-opacity));
+}
+
 .border-blue-900 {
   --tw-border-opacity: 1;
   border-color: rgb(30 58 138 / var(--tw-border-opacity));
@@ -4190,6 +4194,11 @@ details.collapse summary::-webkit-details-marker {
 .bg-purple-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(192 132 252 / var(--tw-bg-opacity));
+}
+
+.bg-purple-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(126 34 206 / var(--tw-bg-opacity));
 }
 
 .bg-red-400 {
@@ -5320,10 +5329,6 @@ input[name="remember"] {
 }
 
 @media (min-width: 1024px) {
-  .lg\:visible {
-    visibility: visible;
-  }
-
   .lg\:order-2 {
     order: 2;
   }
@@ -5360,6 +5365,14 @@ input[name="remember"] {
 
   .lg\:w-10 {
     width: 2.5rem;
+  }
+
+  .lg\:w-2\/3 {
+    width: 66.666667%;
+  }
+
+  .lg\:w-4\/5 {
+    width: 80%;
   }
 
   .lg\:min-w-96 {

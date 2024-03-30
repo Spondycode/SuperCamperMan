@@ -48,6 +48,38 @@ def profile_view(request, username=None):
     else:
         messages.success(request, "You need to login first")
         return redirect("/login")
+    
+    
+    
+    
+# VIsit the profile of another user
+# View the profile of an owner os a plot and show plots created by the user
+def user_profile_view(request, username):
+    try:
+        user = User.objects.get(username=username)
+        plots = Plot.objects.filter(owner=user)  # Fetch plots created by the logged in user
+        profile = user.profile
+        
+        paginator = Paginator(plots, 24)  # Show 12 plots per page
+        page = int(request.GET.get('page', 1))
+        plots = paginator.page(page)
+        
+        new_message_form = InboxNewMessageForm() # form to send a message to the user from the profile page
+        
+        context = {
+            "plots": plots,
+            "profile": profile,
+            "new_message_form": new_message_form,
+            "page": page,
+        }
+        return render(request, "a_users/user_profile.html", context)
+    except User.DoesNotExist:
+        raise Http404("User does not exist")
+    except Plot.DoesNotExist:
+        raise Http404("Plot does not exist")
+    
+    
+    
 
 
 
