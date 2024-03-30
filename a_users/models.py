@@ -36,7 +36,7 @@ class Profile(models.Model):
     info = models.TextField(null=True, blank=True)
     realname = models.CharField( max_length=40, null=True, blank=True)
     email = models.EmailField(max_length=254, null=True, unique=True)
-    # created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True , null=True, blank=True)
     nationality = models.CharField(max_length=50, null=True, blank=True)
     campermode = models.CharField(max_length=30, choices=MODES, default="Hammock", null=True, blank=True)
     camperstory = models.TextField(null=True, blank=True)
