@@ -20,21 +20,24 @@
                     <a href="#"><img class="mx-auto mb-2 w-96 " src="{% static 'images/default.jpg' %}" alt="Default image"></a>
                     {% endif %}
                 </figure>
+
+                <!-- Buttons for the different plot categories -->
                 <div class="mx-auto my-2 text-center max-w-7xl">
                     {% if plot.categories == 'Campsite' %}
-                    <a class="btn btn-primary" href="{% url 'campsite-plots' %}">Campsite</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'campsite-plots' %}">Campsite</a>
                     {% endif %}
 
                     {% if plot.categories == 'Official' %}
-                    <a class="btn bg-yellow-400" href="{% url 'official-plots' %}">Official</a>
+                    <a class="btn bg-yellow-400 btn-sm" href="{% url 'official-plots' %}">Official</a>
                     {% endif %}
 
                     {% if plot.categories == 'Wild' %}
-                    <a class="btn text-white bg-green-700" href="{% url 'wild-plots' %}">Wild</a>
+                    <a class="btn text-white bg-green-700 btn-sm" href="{% url 'wild-plots' %}">Wild</a>
                     {% endif %}
                 </div>
  
-                <div class="p-5 mx-auto mt-5 text-xl max-w-7xl">
+                <!-- Plot details -->
+                <div class="p-2 mx-auto mt-2 max-w-96">
                     <p class="text-truncate"><strong>Description:</strong> {{ plot.description }}</p>
                     
                     <p><strong>Campsite:</strong> {{ plot.campsite }}</p>
@@ -42,20 +45,21 @@
                     <p><strong>Country:</strong> {{ plot.countries }}</p>
                     
                     {% if plot.what3words is not None %}
-                    <p><strong>What3Words:</strong> <a class="btn btn-primary" href="{{ plot.what3words }}"> Get Directions</a> </p>
+                    <p><strong>What3Words:</strong> <a class="btn btn-primary btn-sm" href="{{ plot.what3words }}"> Get Directions</a> </p>
                     <p class="p-3">This is a precise what3words address, made of 3 random words. Every 3 metre square in
                         the world has its own unique what3words address.</p>
                         {% endif %}
                     
-                        {% if plot.owner %}
+                        <!-- owner details and profile  -->
+                        {% if not plot.owner %}
                         <div class="p-3 my-6 rounded-lg mx-14">
                             <a href="{% url 'profile' plot.owner.username %}">
                                 
-                                <p class="text-center"><strong>Plot Poster:</strong> {{ plot.owner.username }} </p>
+                                <p class="text-center text-sm text-gray-500"><strong>Plot Poster:</strong> {{ plot.owner.username }} </p>
                             </a>
-                                <p class="text-center"><strong>Real Name:</strong> {{ plot.owner.profile.realname }} </p>
+                                <p class="text-center text-sm text-gray-500"><strong>Real Name:</strong> {{ plot.owner.profile.realname }} </p>
                             {% else %}
-                            <span>No Owner</span>
+                            <p class="text-center">Your Plot !</p>
                         </div>
                         {% endif %}
                     
@@ -105,7 +109,7 @@
 
                 <hr class="mx-auto border-2 border-blue-900 max-w-96">
 
-                <div class="flex justify-between gap-3 py-6">
+                <div class="flex justify-around gap-3 py-6 max-w-5xl mx-auto">
 
                     {% if user.is_authenticated and user == plot.owner %}
 
@@ -114,10 +118,6 @@
                     {% else %}
                     <a class="btn btn-primary" href="{% url 'home' %}">Home</a>
 
-                    {% endif %}
-                    
-                    {% if user.is_superuser  %}
-                    <a class="btn btn-error btn-outline" href="{% url 'delete-plot' plot.id %}">Delete Plot</a>
                     {% endif %}
                         
                 </div>
@@ -128,7 +128,7 @@
 
 
 
-    <div class="bg-blue-200 card p-4">
+    <div class="bg-blue-200 p-4">
         {% if user.is_authenticated %}
         <!-- COMMENT FORM -->
             <div class="card">
