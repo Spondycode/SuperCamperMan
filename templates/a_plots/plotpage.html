@@ -70,7 +70,7 @@
 <!-- Comments COUNT  -->
                 <hr class="mx-auto border-2 border-blue-900 max-w-96">
                 <div class="mx-3 ">
-                    <div class="my-3 ">
+                    <div class="my-3 bg-gray-200 ">
                         {% if plot.comments.count %}
                         <h5 id="commentscount-{{ plot.id }}" class="mt-2 text-xl text-center text-blue-800">
                             📣 Comments: <span class="">{{ plot.comments.count }}</span>
@@ -140,7 +140,7 @@
                     _="on htmx:afterRequest reset() me">
                         {% csrf_token %}
                         {{ commentform.as_p }}
-                        <button @click="open = false" class="btn-primary btn"
+                        <button @click="open = false" class="btn-primary btn mt-2"
                             type="submit">Add Comment</button>
                     </form>
                 </div>

@@ -4,26 +4,52 @@ from allauth.account.utils import send_email_confirmation
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
+from a_plot.views import Plot
 from django.contrib import messages
 from a_inbox.forms import InboxNewMessageForm
 from .forms import *
+from django.core.paginator import Paginator
 
-def profile_view(request, username=None):
-    if username:
-        profile = get_object_or_404(User, username=username).profile
-    else:
-        try:
-            profile = request.user.profile
-        except:
-            return redirect('account_login')
+# def profile_view(request, username=None):
+#     if username:
+#         profile = get_object_or_404(User, username=username).profile
+#     else:
+#         try:
+#             profile = request.user.profile
+#         except:
+#             return redirect('account_login')
         
-    new_message_form = InboxNewMessageForm()
+#     new_message_form = InboxNewMessageForm()
     
-    context = {
-        'profile':profile,
-        'new_message_form':new_message_form
-    }
-    return render(request, 'a_users/profile.html', context)
+#     context = {
+#         'profile':profile,
+#         'new_message_form':new_message_form
+#     }
+#     return render(request, 'a_users/profile.html', context)
+
+
+# View the profile of the logged in user and show plots created by the user
+def profile_view(request):
+    if request.user.is_authenticated:
+        plots = Plot.objects.filter(owner=request.user)  # Fetch plots created by the logged in user
+        profile = request.user.profile
+        
+        paginator = Paginator(plots, 24)  # Show 12 plots per page
+        page = int(request.GET.get('page', 1))
+        plots = paginator.page(page)
+        
+        context = {
+            "profile": profile,
+            "plots": plots,
+            'page': page,
+            
+        }
+        return render(request, "a_users/profile.html", context)
+    else:
+        messages.success(request, "You need to login first")
+        return redirect("/login")
+
+
 
 
 @login_required
