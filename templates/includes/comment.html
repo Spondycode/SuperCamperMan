@@ -22,7 +22,7 @@
 
             <!-- Only allow delete by author -->
             {% if user.is_authenticated and comment.author == user %}
-            <a class="btn btn-outline btn-error"
+            <a class="btn btn-outline btn-error btn-sm"
                 href="{% url 'delete-comment' comment.id %}">Delete Comment</a>
             {% endif %}
         </div>

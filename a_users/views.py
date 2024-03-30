@@ -29,7 +29,7 @@ from django.core.paginator import Paginator
 
 
 # View the profile of the logged in user and show plots created by the user
-def profile_view(request):
+def profile_view(request, username=None):
     if request.user.is_authenticated:
         plots = Plot.objects.filter(owner=request.user)  # Fetch plots created by the logged in user
         profile = request.user.profile
