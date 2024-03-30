@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib import messages
+from a_inbox.forms import InboxNewMessageForm
 from .forms import *
 
 def profile_view(request, username=None):
@@ -15,7 +16,14 @@ def profile_view(request, username=None):
             profile = request.user.profile
         except:
             return redirect('account_login')
-    return render(request, 'a_users/profile.html', {'profile':profile})
+        
+    new_message_form = InboxNewMessageForm()
+    
+    context = {
+        'profile':profile,
+        'new_message_form':new_message_form
+    }
+    return render(request, 'a_users/profile.html', context)
 
 
 @login_required
