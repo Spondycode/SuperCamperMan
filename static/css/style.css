@@ -3698,6 +3698,10 @@ details.collapse summary::-webkit-details-marker {
   width: 6rem;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
 .w-36 {
   width: 9rem;
 }
@@ -3730,16 +3734,16 @@ details.collapse summary::-webkit-details-marker {
   width: 2rem;
 }
 
-.w-96 {
-  width: 24rem;
-}
-
 .w-full {
   width: 100%;
 }
 
 .w-screen {
   width: 100vw;
+}
+
+.w-5\/6 {
+  width: 83.333333%;
 }
 
 .max-w-3xl {
@@ -5356,6 +5360,10 @@ input[name="remember"] {
 
   .lg\:w-4\/5 {
     width: 80%;
+  }
+
+  .lg\:w-5\/6 {
+    width: 83.333333%;
   }
 
   .lg\:min-w-96 {

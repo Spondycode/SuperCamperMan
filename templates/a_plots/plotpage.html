@@ -4,7 +4,7 @@
 
     <!-- Main section -->
 
-<div class="  p-3 bg-slate-200">
+<div class="  p-3 bg-slate-200 w-full">
             {% include 'includes/cards.html' %}
                 <div class="text-center ">
                     <h3 class="mb-2 text-2xl font-semibold text-center text-blue-800 ">
@@ -15,9 +15,9 @@
                 <!-- Plot image -->
                 <figure>
                     {% if plot.plot_image %}
-                    <a href="#"><img class="mx-auto mb-2 w-96" src="{{ plot.plot_image.url }}" alt="Plot Image"></a>
+                    <a href="#"><img class="mx-auto mb-2 w-full lg:w-5/6 " src="{{ plot.plot_image.url }}" alt="Plot Image"></a>
                     {% else %}
-                    <a href="#"><img class="mx-auto mb-2 w-96 " src="{% static 'images/default.jpg' %}" alt="Default image"></a>
+                    <a href="#"><img class="mx-auto mb-2" src="{% static 'images/default.jpg' %}" alt="Default image"></a>
                     {% endif %}
                 </figure>
 
@@ -37,7 +37,7 @@
                 </div>
  
                 <!-- Plot details -->
-                <div class="p-2 mx-auto mt-2 max-w-96">
+                <div class="p-2 mx-auto mt-2 w-5/6">
                     <p class="text-truncate"><strong>Description:</strong> {{ plot.description }}</p>
                     
                     <p><strong>Campsite:</strong> {{ plot.campsite }}</p>
@@ -59,7 +59,7 @@
                             </a>
                                 <p class="text-center text-sm text-gray-500"><strong>Real Name:</strong> {{ plot.owner.profile.realname }} </p>
                             {% else %}
-                            <p class="text-center">Your Plot !</p>
+                            <p class="text-center">One of Your Plots !</p>
                         </div>
                         {% endif %}
                     
@@ -122,17 +122,17 @@
                         
                 </div>
 
-                <h2 class="py-2 mt-3 mb-2 text-2xl font-semibold text-center text-white rounded-lg bg-blue-400 lg:py-6">Comments & Replies</h2>
+                <h2 class="py-2 mt-3 mb-2 lg:w-5/6 lg:mx-auto text-2xl font-semibold text-center text-white rounded-lg bg-blue-400 lg:py-6">Comments & Replies</h2>
 
 
 
 
 
-    <div class="bg-blue-200 p-4">
+    <div class="bg-blue-200 p-4 lg:w-5/6 lg:mx-auto">
         {% if user.is_authenticated %}
         <!-- COMMENT FORM -->
-            <div class="card">
-                <div class="container mx-auto mt-3">
+            <div class="card ">
+                <div class="container mx-auto mt-3 lg:w-5/6">
                     <form  class=""
                     hx-post="{% url 'comment-sent' plot.id %}"
                     hx-target="#tab-contents"

@@ -10,21 +10,23 @@
     <hr class=" w-full my-4 border-2 border-blue-700 ">
 
     <h4 class=" text-lg font-medium">My Camper Story</h4>
-    {% if profile.campermode %}
-    <p>Often I go camping with a {{ profile.campermode }}</p>
-    {% else %}
-    <p>
-      Lying on a blow up mattress looking at the stars is the best form of
-      camping
-    </p>
-    {% endif %}
-    <p>{{ profile.camperstory }}</p>
-
-    <p class=" ">
-      Member since - {{ profile.created }}
-    </p>
-    <div class="mb-2">Nationality - {{ profile.nationality }}</div>
-    <p class="mb-2">Supercamper Plots Created: <span class="px-3 py-2 font-semibold border-2 border-blue-800 rounded-full bg-sky-300">{{ profile.user.plots.count }}</span></p>
-    <span class=" btn btn-sm  btn-info">{{ profile.level }}</span>
+    <div class="text-left">
+      {% if profile.campermode %}
+      <p>Often I go camping with a {{ profile.campermode }}</p>
+      {% else %}
+      <p>
+        Lying on a blow up mattress looking at the stars is the best form of
+        camping
+      </p>
+      {% endif %}
+      <p>{{ profile.camperstory }}</p>
+      <p>Favourite Campsite - {{ profile.fav_campsite }}</p>
+      <p class=" ">
+        Member since - {{ profile.created }}
+      </p>
+      <div class="mb-2">Nationality - {{ profile.nationality }}</div>
+      <p class="mb-2">Supercamper Plots Created: <span class="px-3 py-2 font-semibold border-2 border-blue-800 rounded-full bg-sky-300">{{ profile.user.plots.count }}</span></p>
+      <span class=" btn btn-sm  btn-info">{{ profile.level }}</span>
+    </div>
 
   </div>
