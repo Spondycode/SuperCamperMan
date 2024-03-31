@@ -9,6 +9,8 @@ from django.contrib import messages
 from a_inbox.forms import InboxNewMessageForm
 from .forms import *
 from django.core.paginator import Paginator
+from .forms import ProfileForm
+from django.http import Http404
 
 # def profile_view(request, username=None):
 #     if username:
