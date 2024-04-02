@@ -15,7 +15,7 @@
                 <!-- Plot image -->
                 <figure>
                     {% if plot.plot_image %}
-                    <a href="#"><img class="mx-auto mb-2 w-full lg:w-5/6 " src="{{ plot.plot_image.url }}" alt="Plot Image"></a>
+                    <a href="#"><img class="mx-auto mb-2 w-full lg:w-5/6 shadow-lg rounded-lg" src="{{ plot.plot_image.url }}" alt="Plot Image"></a>
                     {% else %}
                     <a href="#"><img class="mx-auto mb-2" src="{% static 'images/default.jpg' %}" alt="Default image"></a>
                     {% endif %}

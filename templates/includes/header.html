@@ -37,6 +37,7 @@
                             <a href="{% url 'inbox' %}">Inbox</a>
                             {% endif %}
                         <li><a href="{% url 'profile' %}">My Profile</a></li>
+                        
                         {% if not user.profile.level == 'Banned' %}
 
                         <li><a href="{% url 'profile-edit' %}">Edit Profile</a></li>
