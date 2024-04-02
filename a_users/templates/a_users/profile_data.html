@@ -1,9 +1,9 @@
-<div class="  mx-auto flex flex-col items-center pt-4 px-2">
+<div class="lg:w-3/4 flex flex-col items-center pt-4 px-2 lg:mx-auto">
     <h1>{{ profile.name }}</h1>
     <div class="text-gray-400 mb-2 -mt-3">@{{ profile.user.username }}</div>
     <img class="w-36 h-36 rounded-full object-cover mb-4" src="{{ profile.avatar }}" />
     <div class="text-center">
-        <p class=" bg-sky-400 p-2 shadow-md mt-4 rounded-sm">{{ profile.level }}</p>
+        <p class=" bg-sky-400 {% if user.profile.level == 'Banned' %} bg-red-800 text-white{% endif %} p-2 shadow-md mt-4 rounded-sm">{{ profile.level }}</p>
         {% if profile.info %}
         <div class="mt-2">{{ profile.info|linebreaksbr }}</div>
         {% endif %}
@@ -12,7 +12,7 @@
 
     <h4 class=" text-lg font-medium">My Camper Story</h4>
 
-    <div class="text-left w-4/5">
+    <div class="text-left w-full">
         {% if profile.campermode %}
         <p>Often I go camping with a {{ profile.campermode }}</p>
         {% else %}
@@ -20,6 +20,9 @@
             Lying on a blow up mattress looking at the stars is the best form of
             camping
         </p>
+        {% endif %}
+        {% if profile.fav_campsite %}
+          <p>My Favourite Campsite - {{ profile.fav_campsite }}</p>
         {% endif %}
         <p class=" ">
             Member since - {{ profile.created }}
@@ -30,7 +33,9 @@
                 <span class="px-2 py-1 font-semibold border-2 border-blue-800 rounded-full bg-sky-300">
                     {{ profile.user.plots.count}}</span></p>
             
-        
     </div>
+    {% if user != 'banned' %}
+    <a class="btn btn-sm btn-info mt-2" href="{% url 'profile-edit' %}">Edit Profile</a>
+    {% endif %}
 
 </div>

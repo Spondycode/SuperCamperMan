@@ -4,6 +4,7 @@ Django settings for a_core project.
 
 from pathlib import Path
 from environ import Env
+import dj_database_url
 
 
 env = Env(
@@ -122,6 +123,9 @@ DATABASES = {
     }
 }
 
+POSTGRES_LOCALLY = True
+if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
+    DATABASES['default'] = dj_database_url.parse(env('DATABASE_URL'))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -162,7 +166,15 @@ STATICFILES_DIRS = [ BASE_DIR / 'static' ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media' 
+
+
+if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:  # noqa: E712
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+else:
+    MEDIA_ROOT = BASE_DIR / 'media'
+
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
