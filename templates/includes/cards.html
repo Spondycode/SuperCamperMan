@@ -34,11 +34,13 @@
             No owner</h3>
         
         {% endif %}
-        <p class="text-truncate dark:text-white"><strong>Description:</strong> {{ plot.description }}</p>
-        <p class="dark:text-white"><strong>Campsite:</strong> {{ plot.campsite }}</p>
-        <p class="dark:text-white"><strong>Price for the night:</strong> {{ plot.price }}</p>
-        <p class="dark:text-white"><strong>Season:</strong> {{ plot.season }}</p>
-        <p class="dark:text-white"><strong>Country: {{ plot.countries }}</strong></p>
+        <ul>
+            <li class="text-truncate dark:text-white"><strong>Description:</strong> {{ plot.description }}</li>
+            <li class="dark:text-white"><strong>Campsite:</strong> {{ plot.campsite }}</li>
+            <li class="dark:text-white"><strong>Price for the night:</strong> {{ plot.price }}</li>
+            <li class="dark:text-white"><strong>Season:</strong> {{ plot.season }}</li>
+            <li class="dark:text-white"><strong>Country: {{ plot.countries }}</strong></li>
+        </ul>
 
         <!-- Image of the plot here -->
         <figure>
@@ -86,9 +88,9 @@
             {% if user in plot.likes.all %}
             <p class="px-3 text-blue-800 hover:shadow-md dark:text-white ">You liked this 💙 💙</p><span></span>
             {% else %}
-            <a class="p-2 border-2 border-yellow-500 rounded-md hover:bg-yellow-500 hover:shadow-md dark:text-white " href="{% url 'like-plot' plot.id %}">Add a Like</a>
+            <a class="p-1 border-2 border-yellow-500 rounded-md hover:bg-yellow-500 hover:shadow-md dark:text-white " href="{% url 'like-plot' plot.id %}">Add a Like</a>
             {% endif %}
-            <a class="flex items-center px-2 border-2 border-red-600 rounded-md hover:bg-red-500 hover:text-white hover:shadow-md dark:text-white " href="{% url 'report-plot' plot.id %}">Report</a>
+            <a class="flex items-center p-1 border-2 border-red-600 rounded-md hover:bg-red-500 hover:text-white hover:shadow-md dark:text-white " href="{% url 'report-plot' plot.id %}">Report</a>
             
         </div>
         {% endif %}

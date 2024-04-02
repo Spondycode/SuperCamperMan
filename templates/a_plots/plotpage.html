@@ -113,10 +113,10 @@
 
                     {% if user.is_authenticated and user == plot.owner %}
 
-                    <a class="btn btn-outline hover:bg-yellow-500 " href="{% url 'edit-plot' plot.id %}">Edit Plot</a>
-                    <a class="btn btn-outline btn-error" href="{% url 'delete-plot' plot.id %}">Delete Plot</a>
+                    <a class="btn btn-outline btn-sm hover:bg-yellow-500 " href="{% url 'edit-plot' plot.id %}">Edit Plot</a>
+                    <a class="btn btn-outline btn-sm btn-error" href="{% url 'delete-plot' plot.id %}">Delete Plot</a>
                     {% else %}
-                    <a class="btn btn-primary" href="{% url 'home' %}">Home</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'home' %}">Home</a>
 
                     {% endif %}
                         
