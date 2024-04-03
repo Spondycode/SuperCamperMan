@@ -60,7 +60,7 @@ class Profile(models.Model):
     def avatar(self):
         try:
             avatar = self.image.url
-        except:
+        except:  # noqa: E722
             avatar = static('images/avatar.svg')
         return avatar
 
