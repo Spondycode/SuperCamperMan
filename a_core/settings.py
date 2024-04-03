@@ -197,6 +197,10 @@ if ENVIRONMENT == 'production' or POSTGRES_LOCALLY:
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_HOST_USER = env('EMAIL_ADDRESS')
     EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    DEFAULT_FROM_EMAIL = f'SuperCamper {env("EMAIL_ADDRESS")}'
+    ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
