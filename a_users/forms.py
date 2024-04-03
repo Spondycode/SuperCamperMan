@@ -17,7 +17,7 @@ from .models import Profile
 class ProfileForm(ModelForm):
     class Meta:
         model = Profile
-        exclude = ["user", "level", "plot_reports", "numplots", "email", "created"]
+        exclude = ["user", "level", "plot_reports", "numplots", "created"]
         widgets = {
             "image": forms.FileInput(attrs={"class": "form-control"}),
             "displayname" : forms.TextInput(attrs={"placeholder": "Add Displayname"}),
@@ -27,6 +27,7 @@ class ProfileForm(ModelForm):
             "nationality" : forms.TextInput(attrs={"placeholder": "Add Nationality"}),
             "fav_campsite" : forms.TextInput(attrs={"placeholder": "Add Favourite Campsite"}),
             "realname" : forms.TextInput(attrs={"placeholder": "Add Real Name"}),
+            "email" : forms.EmailInput(attrs={"placeholder": "Add Email"}),
         }
         labels = {
             "realname": "Name",

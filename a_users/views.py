@@ -160,3 +160,8 @@ def profile_delete_view(request):
         return redirect('home')
     
     return render(request, 'a_users/profile_delete.html')
+
+
+def profile_verify_email(request):
+    send_email_confirmation(request, request.user)
+    return redirect('profile')

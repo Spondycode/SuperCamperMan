@@ -2,6 +2,7 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save, pre_save
 from allauth.account.models import EmailAddress
 from django.contrib.auth.models import User
+from allauth.account.models import EmailAddress
 from .models import Profile
 
 @receiver(post_save, sender=User)       
@@ -35,3 +36,18 @@ def user_postsave(sender, instance, created, **kwargs):
 def user_presave(sender, instance, **kwargs):
     if instance.username:
         instance.username = instance.username.lower()
+        
+        
+        
+@receiver(post_save, sender=Profile)
+def update_account_email(sender, instance, created, **kwargs):
+    profile = instance
+    if not created:
+        try:
+            email_address = EmailAddress.objects.get_primary(profile.user)
+            if email_address.email != profile.email:
+                email_address.email = profile.email
+                email_address.verified = False
+                email_address.save()
+        except:
+            pass
