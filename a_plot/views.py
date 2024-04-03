@@ -489,10 +489,3 @@ def plot_table_view(request):
     return render(request, "a_plots/table_view.html", context)
 
 
-
-def tester_view(request):
-    title = "Testing"
-    context = {
-        "title": title,
-    }
-    return render(request, "tester.html", context)

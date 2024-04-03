@@ -22,7 +22,7 @@
           <td><a class="btn btn-ghost btn-xs mx-1" href="{% url 'show-plot' plot.id %}">
             {{ plot.title }}
         </a></td> 
-          <td><a class="p-2 cursor-pointer btn btn-ghost btn-sm mx-1" href="{% url 'user-profile' plot.owner.username %}">
+          <td><a class="p-2 cursor-pointer btn btn-ghost btn-sm mx-1" href="">
             {{ plot.owner }}
         </a></td> 
         <td class="p-2"> <!-- type -->
@@ -53,9 +53,7 @@
   </div>
 
 
-
-
-# Pagination for the page
+  <!--  Pagination for the page -->
 
 <div class="flex items-center justify-center mx-auto my-4">
     
@@ -67,7 +65,7 @@
     </div>
 
     
-    <div class="p-2 bg-gray-200 border-2 border-gray-400 rounded-md">Page {{ plots.number }} of {{ plots.paginator.num_pages }}</div>
+    <div class="p-2 bg-gray-200 border-2 border-gray-400 rounded-md mb-4">Page {{ plots.number }} of {{ plots.paginator.num_pages }}</div>
 
     <div class="flex p-2 space-x-4">
         {% if plots.has_next %}
