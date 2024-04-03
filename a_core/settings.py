@@ -192,13 +192,13 @@ CLOUDINARY_STORAGE = {
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_SIGNUP_REDIRECT_URL = "{% url 'account_signup' %}?next={% url 'profile-onboarding' %}"
 
-if ENVIRONMENT == 'production' or POSTGRES_LOCALLY:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = env('EMAIL_ADDRESS')
-    EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
-else:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# if ENVIRONMENT == 'production' or POSTGRES_LOCALLY:
+#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#     EMAIL_HOST = 'smtp.gmail.com'
+#     EMAIL_HOST_USER = env('EMAIL_ADDRESS')
+#     EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
+# else:
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
