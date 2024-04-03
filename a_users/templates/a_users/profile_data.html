@@ -3,7 +3,7 @@
     <div class="text-gray-400 mb-2 -mt-3">@{{ profile.user.username }}</div>
     <img class="w-36 h-36 rounded-full object-cover mb-4" src="{{ profile.avatar }}" />
     <div class="text-center">
-        <p class=" bg-sky-400 {% if user.profile.level == 'Banned' %} bg-red-700 text-white{% endif %} p-2 shadow-md mt-4 rounded-sm">{{ profile.level }}</p>
+        <p class="  text-gray-500 {% if user.profile.level == 'Banned' %} bg-red-700 {% endif %} p-2 shadow-md mt-4 rounded-sm">{{ profile.level }}</p>
         {% if profile.info %}
         <div class="mt-2">{{ profile.info|linebreaksbr }}</div>
         {% endif %}
