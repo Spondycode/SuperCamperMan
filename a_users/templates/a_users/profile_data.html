@@ -37,7 +37,10 @@
     {% if user != 'banned' %}
     {% if user == profile.user %}
       
-    <a class="btn btn-sm btn-info mt-2" href="{% url 'profile-edit' %}">Edit Profile</a>
+    <div class="flex justify-center gap-4">
+        <a class="btn btn-sm btn-info mt-2" href="{% url 'profile-edit' %}">Edit Profile</a>
+        <a class="btn btn-sm btn-info mt-2" href="{% url 'add-plot' %}">Add Plot</a>
+    </div>
     {% endif %}
     {% endif %}
 
