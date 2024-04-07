@@ -10,7 +10,7 @@
             {% if request.user.is_authenticated %}
 
 
-            </li>
+            <!-- </li> -->
 
             <li x-data="{ dropdownOpen: false }" class="relative">
                 <a @click="dropdownOpen = !dropdownOpen" @click.away="dropdownOpen = false"
@@ -30,6 +30,9 @@
                         <li>
                             <a href="{% url 'add-plot' %}" class=" py-2 pl-3 pr-4 text-center ">Add
                                 Plot</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'blog' %}" class=" py-2 pl-3 pr-4 text-center ">Blog</a>
                         </li>
                         <li class="relative">
                             <div class="absolute top-2 right-0" hx-get="{% url 'notify-inbox' %}" hx-trigger="load"

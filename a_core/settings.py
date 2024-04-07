@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     
     'a_home',
     'a_users',
+    'a_blog',
     'a_plot',
     'a_inbox',
     'a_features'
