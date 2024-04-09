@@ -68,7 +68,8 @@ INSTALLED_APPS = [
     'a_users',
     'a_plot',
     'a_inbox',
-    'a_features'
+    'a_features',
+    'a_blog',
 ]
 
 SITE_ID = 1
