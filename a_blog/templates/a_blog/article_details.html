@@ -1,0 +1,11 @@
+{% extends "layouts/box.html" %}
+{% load static %}
+
+{% block content %}
+  
+<h1 class="text-center text-2xl font-semibold">{{ post.title }}</h1>
+<p class="text-sm text-gray-600">by {{ post.author.profile.name }} on {{ post.date_posted }}</p>
+<p class="text-gray-700">{{ post.content }}</p>
+<button><a href="{{ request.META.HTTP_REFERER }}">Back</a></button>
+
+{% endblock content %}

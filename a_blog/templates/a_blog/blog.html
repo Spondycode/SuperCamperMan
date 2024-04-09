@@ -3,7 +3,25 @@
 
 {% block content %}
 
-<h1 class="text-center text-2xl font-semibold">Blog Home Page</h1>
-<p>Links to the posts here</p>
+<h1 class="text-center text-2xl font-semibold">SuperCamper News</h1>
+
+<div class="grid grid-cols-1 gap-4 mt-2 lg:grid-cols-2 xl:grid-cols-3 m-2">
+    
+        
+            {% for post in object_list %}
+            <div>
+                <div class="card bg-slate-100 p-3 mb-6 shadow-md">
+                    <h2  class="card-title bg-sky-300 p-2 rounded-md"><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></h2>
+                    <p class="text-sm text-gray-600">Post Author - {{ post.author.profile.name }}</p>
+                    <p>{{ post.content }}</p>
+                    <p class="text-sm text-gray-600">{{ post.date_posted }}</p>
+                </div>
+            </div>
+            
+            {% endfor %}
+    
+</div>
+<button><a href="{% url 'add-post' %}">Add Post</a></button>
+
 
 {% endblock content %}

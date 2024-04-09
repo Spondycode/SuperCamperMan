@@ -1,0 +1,17 @@
+{% extends "layouts/box.html" %}
+{% load static %}
+
+{% block content %}
+  
+<h1 class="text-center text-2xl font-semibold">Add an Article</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+
+<!-- <button type="submit">Submit</button> -->
+<button><a href="{{ request.META.HTTP_REFERER }}">Back</a></button>
+
+{% endblock content %}
