@@ -5,6 +5,7 @@
     <!-- Main section -->
 
 <div class="  p-3 bg-slate-200 w-full">
+<div class="  p-3 bg-slate-200 w-full">
             {% include 'includes/cards.html' %}
                 <div class="text-center ">
                     <h3 class="mb-2 text-2xl font-semibold text-center text-blue-800 ">
@@ -15,11 +16,13 @@
                 <!-- Plot image -->
                 <figure>
                     {% if plot.plot_image %}
-                    <a href="#"><img class="mx-auto mb-2 w-full lg:w-5/6 " src="{{ plot.plot_image.url }}" alt="Plot Image"></a>
+                    <a href="#"><img class="mx-auto mb-2 w-full lg:w-5/6 shadow-lg rounded-lg" src="{{ plot.plot_image.url }}" alt="Plot Image"></a>
                     {% else %}
                     <a href="#"><img class="mx-auto mb-2" src="{% static 'images/default.jpg' %}" alt="Default image"></a>
                     {% endif %}
                 </figure>
+
+                <!-- Buttons for the different plot categories -->
 
                 <!-- Buttons for the different plot categories -->
                 <div class="mx-auto my-2 text-center max-w-7xl">
@@ -98,9 +101,9 @@
                     {% if user.is_authenticated and user != plot.author %}
                     
                         {% if user in plot.likes.all %}
-                        <a class="btn btn-secondary" href="{% url 'like-plot' plot.id %}">Remove Like</a>                       
+                        <a class="btn btn-secondary btn-sm" href="{% url 'like-plot' plot.id %}">Remove Like</a>                       
                         {% else %}
-                        <a class="btn  btn-accent" href="{% url 'like-plot' plot.id %}">Like</a>
+                        <a class="btn  btn-accent btn-sm" href="{% url 'like-plot' plot.id %}">Like</a>
                         {% endif %}
                 </div>
                     {% endif %}
@@ -113,10 +116,10 @@
 
                     {% if user.is_authenticated and user == plot.owner %}
 
-                    <a class="btn btn-outline hover:bg-yellow-500 " href="{% url 'edit-plot' plot.id %}">Edit Plot</a>
-                    <a class="btn btn-outline btn-error" href="{% url 'delete-plot' plot.id %}">Delete Plot</a>
+                    <a class="btn btn-outline btn-sm hover:bg-yellow-500 " href="{% url 'edit-plot' plot.id %}">Edit Plot</a>
+                    <a class="btn btn-outline btn-sm btn-error" href="{% url 'delete-plot' plot.id %}">Delete Plot</a>
                     {% else %}
-                    <a class="btn btn-primary" href="{% url 'home' %}">Home</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'home' %}">Home</a>
 
                     {% endif %}
                         

@@ -16,7 +16,7 @@ def home(request):
     plots = Plot.objects.all()
     level = Profile.objects.filter(level=request.user)
     
-    paginator = Paginator(plots, 24)  # Show 12 plots per page
+    paginator = Paginator(plots, 6)  
     page = int(request.GET.get('page', 1))
     plots = paginator.page(page)
     
@@ -487,3 +487,5 @@ def plot_table_view(request):
         "page": page,
     }
     return render(request, "a_plots/table_view.html", context)
+
+

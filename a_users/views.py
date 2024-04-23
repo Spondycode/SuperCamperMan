@@ -7,12 +7,13 @@ from django.contrib.auth.models import User
 from a_plot.views import Plot
 from django.contrib import messages
 from a_inbox.forms import InboxNewMessageForm
+from .forms import *
+from a_plot.models import Plot
 from django.core.paginator import Paginator
 from django.http import Http404
 
-from .forms import ProfileForm,  EmailForm # Import the ProfileForm class
-# from django.contrib.auth.forms import ProfileForm
-
+# # PROFILE VIEW 1
+# @login_required
 # def profile_view(request, username=None):
 #     if username:
 #         profile = get_object_or_404(User, username=username).profile
@@ -31,9 +32,12 @@ from .forms import ProfileForm,  EmailForm # Import the ProfileForm class
 #     return render(request, 'a_users/profile.html', context)
 
 
-# View the profile of the logged in user and show plots created by the user
+
+
+# PROFILE VIEW 2 -  View the profile of the logged in user and show plots created by the user
 def profile_view(request, username=None):
     if request.user.is_authenticated:
+        
         plots = Plot.objects.filter(owner=request.user)  # Fetch plots created by the logged in user
         profile = request.user.profile
         
@@ -51,11 +55,12 @@ def profile_view(request, username=None):
     else:
         messages.success(request, "You need to login first")
         return redirect("/login")
-    
-    
-    
-    
-# VIsit the profile of another user
+
+
+
+
+
+# Visit the profile of another user - Did this once can't remember how to do it again.
 # View the profile of an owner os a plot and show plots created by the user
 def user_profile_view(request, username):
     try:
@@ -77,33 +82,12 @@ def user_profile_view(request, username):
         }
         return render(request, "a_users/user_profile.html", context)
     except User.DoesNotExist:
-        raise Http404("User does not exist")
+        raise ("User does not exist")
     except Plot.DoesNotExist:
         raise Http404("Plot does not exist")
-    
-    
-    
 
 
 
-
-# @login_required
-# def profile_edit_view(request, username):
-#     form = ProfileForm(instance=request.user.profile)
-#     user = User.objects.get(username=username)
-    
-#     if request.method == 'POST':
-#         form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('profile')
-        
-#     if request.path == reverse('profile-onboarding'):
-#         onboarding = True
-#     else:
-#         onboarding = False
-      
-#     return render(request, 'a_users/profile_edit.html', { 'form':form, 'onboarding':onboarding })
 
 @login_required
 def profile_edit_view(request):
@@ -113,7 +97,11 @@ def profile_edit_view(request):
         form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             form.save()
-            return redirect("profile")
+            
+            if request.user.emailaddress_set.get(primary=True).verified:
+                return redirect('profile')
+            else:
+                return redirect('profile-verify-email')
         
     if request.path == reverse("profile-onboarding"):
         template = 'a_users/profile_onboarding.html'
@@ -185,3 +173,8 @@ def profile_delete_view(request):
         return redirect('home')
     
     return render(request, 'a_users/profile_delete.html')
+
+
+def profile_verify_email(request):
+    send_email_confirmation(request, request.user)
+    return redirect('profile')

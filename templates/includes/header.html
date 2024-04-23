@@ -10,6 +10,7 @@
             {% if request.user.is_authenticated %}
 
 
+            </li>
 
             <li x-data="{ dropdownOpen: false }" class="relative">
                 <a @click="dropdownOpen = !dropdownOpen" @click.away="dropdownOpen = false"
@@ -30,19 +31,18 @@
                             <a href="{% url 'add-plot' %}" class=" py-2 pl-3 pr-4 text-center ">Add
                                 Plot</a>
                         </li>
-
                         <li class="relative">
-                            <div class="absolute top-2 right-0"
-                            hx-get="{% url 'notify-inbox' %}"
-                            hx-trigger="load"
-                            hx-target="this"
-                            hx-swap="innerHTML"></div>
+                            <div class="absolute top-2 right-0" hx-get="{% url 'notify-inbox' %}" hx-trigger="load"
+                                hx-target="this" hx-swap="innerHTML"></div>
                             <a href="{% url 'inbox' %}">Inbox</a>
-                        </li>
-
-                        {% endif %}
+                            {% endif %}
                         <li><a href="{% url 'profile' %}">My Profile</a></li>
+                        
+                        {% if not user.profile.level == 'Banned' %}
+
                         <li><a href="{% url 'profile-edit' %}">Edit Profile</a></li>
+                        {% endif %}
+
                         <li><a href="{% url 'profile-settings' %}">Settings</a></li>
                         <li><a href="{% url 'account_logout' %}">Log Out</a></li>
                         {% if user.is_superuser %}
