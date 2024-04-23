@@ -58,9 +58,6 @@ def profile_view(request, username=None):
 
 
 
-
-
-# Visit the profile of another user - Did this once can't remember how to do it again.
 # View the profile of an owner os a plot and show plots created by the user
 def user_profile_view(request, username):
     try:
