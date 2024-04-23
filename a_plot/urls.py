@@ -32,4 +32,5 @@ urlpatterns = [
     path("check_reports/", check_reports_view, name="check-reports"),  # noqa: F405
     path("about/", about_view, name="about"),  # noqa: F405
     path("plot_table/", plot_table_view, name="plot-table"),  # noqa: F405
+    path("campsites/", campsite_table_view, name="campsite-table"),  # noqa: F405
 ]

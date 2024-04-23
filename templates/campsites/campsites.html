@@ -1,0 +1,16 @@
+{% extends "layouts/blank.html" %}
+
+{% block content %}
+  <h1>Campsites</h1>
+  <p>Table here of the campsites with links to detail for each.</p>
+  <h1>{{ plot.campsite }}
+
+      {{ campsites.name }}
+  </h1>
+
+  
+  {% for campsite in campsites %}
+    <p>{{ campsite.name }}</p>
+  {% endfor %}
+    
+{% endblock content %}

@@ -122,6 +122,7 @@ class Plot(models.Model):
     categories = models.CharField(max_length=25, choices=CATEGORIES, default=1)
     what3words = models.URLField(blank=True, null=True)
     campsite = models.CharField(max_length=200, blank=True, null=True)
+    # campsite = models.ForeignKey("Campsite", on_delete=models.SET_NULL, null=True, blank=True, related_name="campsites")
     countries = models.CharField(max_length=100, choices=COUNTRIES, default="Spain")
     list_date = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="plots")
@@ -137,6 +138,10 @@ class Plot(models.Model):
     class Meta:
         ordering = ["-list_date"]
         
+
+
+
+
 
 
 class LikedPlot(models.Model):

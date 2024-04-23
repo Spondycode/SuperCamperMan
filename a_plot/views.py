@@ -2,13 +2,14 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 # from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
-from .models import Plot, Comment, Reply
+from .models import Plot, Comment, Reply, Campsite
 from a_users.models import Profile
 from .forms import PlotAddForm, PlotEditForm, CommentCreateForm, ReplyCreateForm, PlotReportForm
 from django.contrib import messages 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
+
 
 
 # Create your views here.
@@ -110,6 +111,22 @@ def delete_plot_view(request, pk):
         messages.success(request, "Plot deleted successfully")
         return redirect("home")
     return render(request, "a_plots/delete_plot.html", context)
+
+
+@login_required
+def campsite_table_view(request):
+    campsites = Campsite.objects.all().order_by("name")
+    plots = Plot.objects.all().order_by("campsite") # should not need this line
+    context = {
+        "campsites": campsites,
+        "plots": plots, # should not need this line
+    }
+    return render(request, "campsites/campsites.html", context)
+
+
+
+
+
 
 
 #CHECK REPORTED PLOTS
