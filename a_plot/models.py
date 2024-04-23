@@ -137,6 +137,9 @@ class Plot(models.Model):
     class Meta:
         ordering = ["-list_date"]
         
+        
+    
+        
 
 
 class LikedPlot(models.Model):

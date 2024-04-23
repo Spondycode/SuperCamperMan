@@ -11,7 +11,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <flex class="flex flex-col">
-                <input class="mb-3 p-4 w-full btn-block btn btn-error" type="submit" value="Report the Post">
+                <input class="mb-3 p-4 w-full btn btn-error" type="submit" value="Report the Post">
                 <a class="btn bg-gray-200 btn-sm" href="{{ request.META.HTTP_REFERER }}">Cancel</a>
             </flex>
         </form>

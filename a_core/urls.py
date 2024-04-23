@@ -8,6 +8,7 @@ from django.conf import settings
 from a_users.views import profile_view, user_profile_view
 from a_home.views import *  # noqa: F403
 
+
 urlpatterns = [
     path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     path('bossman/', admin.site.urls),
@@ -16,6 +17,7 @@ urlpatterns = [
     path('profile/', include('a_users.urls')),
     path("", include("a_plot.urls")),
     path('inbox/', include("a_inbox.urls")),
+    path('campsites/', include("campsites.urls")),
     path('@<username>/', profile_view, name="profile"),
     path('<username>/', user_profile_view, name="user-profile"),
 ]
