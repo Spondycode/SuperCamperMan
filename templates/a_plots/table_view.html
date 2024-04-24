@@ -28,15 +28,15 @@
         <td class="p-1"> 
 
             {% if plot.categories == 'Campsite' %}
-            <a class="btn btn-primary btn-xs w-20" href="{% url 'campsite-plots' %}">Campsite</a>
+            <a class="btn btn-primary btn-xs w-10" href="{% url 'campsite-plots' %}">C</a>
             {% endif %}
     
             {% if plot.categories == 'Official' %}
-            <a class="btn bg-yellow-400 btn-xs w-20" href=" {% url 'official-plots' %}">Official</a>
+            <a class="btn bg-yellow-400 btn-xs w-10" href=" {% url 'official-plots' %}">O</a>
             {% endif %}
     
             {% if plot.categories == 'Wild' %}
-            <a class="btn btn-xs bg-green-600 w-20" href=" {% url 'wild-plots' %}">Wild</a>
+            <a class="btn btn-xs bg-green-600 w-10" href=" {% url 'wild-plots' %}">W</a>
             {% endif %}
 
 

@@ -8,8 +8,8 @@
     
     {% for plot in plots %}
     {% if plot.approved %}
-    <div class="w-full p-4 mx-auto bg-gray-200 card dark:bg-gray-400">
-        <h3 class="text-2xl font-semibold text-center text-blue-900 dark:text-white"> {{ plot.title }}</h3>
+    <div class="w-full p-4 mx-auto bg-gray-200 card ">
+        <h3 class="text-2xl font-semibold text-center text-blue-900 "> {{ plot.title }}</h3>
         {% if plot.categories == 'Campsite' %}
         <a class=" btn btn-primary px-3 mt-3 text-center hover:bg-blue-500 hover:shadow-md" href="{% url 'campsite-plots' %}">Campsite</a>
         {% endif %}
@@ -25,21 +25,21 @@
 
         {% if plot.owner %}
         <a href="{% url 'user-profile' plot.owner.username %}">
-        <p class="my-2  mx-auto btn btn-info btn-block text-white dark:text-sky-100 text-center">
+        <p class="my-2  mx-auto btn btn-info btn-block text-white  text-center">
                 Plot posted by - {{ plot.owner }}
             </p>
         </a>
         {% else %}
-        <h3 class="btn-block my-2 btn btn-outline text-blue-900 border-2 border-sky-400 dark:text-white text-center ">
+        <h3 class="btn-block my-2 btn btn-outline text-blue-900 border-2 border-sky-400  text-center ">
             No owner</h3>
         
         {% endif %}
         <ul>
-            <li class="text-truncate dark:text-white"><strong>Description:</strong> {{ plot.description }}</li>
-            <li class="dark:text-white"><strong>Campsite:</strong> {{ plot.campsite }}</li>
-            <li class="dark:text-white"><strong>Price for the night:</strong> {{ plot.price }}</li>
-            <li class="dark:text-white"><strong>Season:</strong> {{ plot.season }}</li>
-            <li class="dark:text-white"><strong>Country: {{ plot.countries }}</strong></li>
+            <li class="text-truncate "><strong>Description:</strong> {{ plot.description }}</li>
+            <li class=""><strong>Campsite:</strong> {{ plot.campsite }}</li>
+            <li class=""><strong>Price for the night:</strong> {{ plot.price }}</li>
+            <li class=""><strong>Season:</strong> {{ plot.season }}</li>
+            <li class=""><strong>Country: {{ plot.countries }}</strong></li>
         </ul>
 
         <!-- Image of the plot here -->
@@ -55,7 +55,7 @@
         {% if profile.level == 'Banned' %}
         <p>Please enjoy</p>
         {% else %}
-        <a class="btn btn-info mt-4 text-center bg-sky-400  dark:bg-sky-700 dark:text-gray-200" href="{% url 'show-plot' plot.id %}">
+        <a class="btn btn-info mt-4 text-center bg-sky-400   " href="{% url 'show-plot' plot.id %}">
             View Plot - Comments - replies</a>
         {% endif %}
         <hr class="my-3">
@@ -64,14 +64,14 @@
         <div class="flex flex-col justify-between mx-3">
             <div>
                 {% if plot.comments.count %}
-                <h5 class="mt-2 text-xl text-center text-blue-700 dark:text-white ">
+                <h5 class="mt-2 text-xl text-center text-blue-700  ">
                     📣 
                     Comments: <span class="">{{ plot.comments.count }}</span>
                 </h5>
                 {% endif %} 
             </div>
             <div>
-                <h5 class="mb-3 text-xl text-center text-blue-700 dark:text-white ">
+                <h5 class="mb-3 text-xl text-center text-blue-700  ">
                             
                     {% if user in plot.likes.all %}
                     💙 Liked: {{ plot.likes.count }}
@@ -86,11 +86,11 @@
         <div class="flex justify-between m-4 ">
             
             {% if user in plot.likes.all %}
-            <p class="px-3 text-blue-800 hover:shadow-md dark:text-white ">You liked this 💙 💙</p><span></span>
+            <p class="px-3 text-blue-800 hover:shadow-md  ">You liked this 💙 💙</p><span></span>
             {% else %}
-            <a class="p-1 border-2 border-yellow-500 rounded-md hover:bg-yellow-500 hover:shadow-md dark:text-white " href="{% url 'like-plot' plot.id %}">Add a Like</a>
+            <a class="p-1 border-2 border-yellow-500 rounded-md hover:bg-yellow-500 hover:shadow-md  " href="{% url 'like-plot' plot.id %}">Add a Like</a>
             {% endif %}
-            <a class="flex items-center p-1 border-2 border-red-600 rounded-md hover:bg-red-500 hover:text-white hover:shadow-md dark:text-white " href="{% url 'report-plot' plot.id %}">Report</a>
+            <a class="flex items-center p-1 border-2 border-red-600 rounded-md hover:bg-red-500 hover:text-white hover:shadow-md  " href="{% url 'report-plot' plot.id %}">Report</a>
             
         </div>
         {% endif %}
@@ -133,6 +133,6 @@
 <h1 class="text-2xl font-semibold text-center">No Plots to Show Yet !!</h1>
 <p class="text-center">Add your plots with the Add Plot button on the menu bar above</p>
  <a href="{% url 'add-plot' %}"
-                    class="block p-2 py-2 pl-3 pr-4 mt-4 text-center text-purple-700 bg-yellow-400 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-purple-700 dark:hover:text-white lg:dark:hover:bg-transparent btn">Add Plot</a>
+                    class="block p-2 py-2 pl-3 pr-4 mt-4 text-center text-purple-700 bg-yellow-400 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0  btn">Add Plot</a>
                
 {% endif %} -->
