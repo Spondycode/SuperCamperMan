@@ -5614,11 +5614,6 @@ input[name="remember"] {
     background-color: rgb(55 65 81 / var(--tw-bg-opacity));
   }
 
-  .dark\:bg-purple-900 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(88 28 135 / var(--tw-bg-opacity));
-  }
-
   .dark\:bg-sky-700 {
     --tw-bg-opacity: 1;
     background-color: rgb(3 105 161 / var(--tw-bg-opacity));
@@ -5654,11 +5649,6 @@ input[name="remember"] {
     color: rgb(156 163 175 / var(--tw-text-opacity));
   }
 
-  .dark\:text-sky-100 {
-    --tw-text-opacity: 1;
-    color: rgb(224 242 254 / var(--tw-text-opacity));
-  }
-
   .dark\:text-white {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -5669,11 +5659,6 @@ input[name="remember"] {
     color: rgb(254 252 232 / var(--tw-text-opacity));
   }
 
-  .dark\:hover\:bg-gray-700:hover {
-    --tw-bg-opacity: 1;
-    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-  }
-
   .dark\:hover\:bg-purple-700:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(126 34 206 / var(--tw-bg-opacity));
@@ -5682,11 +5667,6 @@ input[name="remember"] {
   .dark\:hover\:text-white:hover {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
-
-  .dark\:focus\:ring-gray-600:focus {
-    --tw-ring-opacity: 1;
-    --tw-ring-color: rgb(75 85 99 / var(--tw-ring-opacity));
   }
 }
 

@@ -1,6 +1,6 @@
-<div class="min-h-full p-2 rounded-lg shadow-lg bg-slate-300 dark:bg-slate-600">
-    <h3 class="my-2 text-2xl font-semibold text-center text-blue-800 dark:text-gray-200">Search Titles</h3>
-    <p class="px-3 text-blue-800 dark:text-gray-200">Search for a plot by title - The name you give to the plot that was just right for your stay.</p>
+<div class="min-h-full p-2 rounded-lg shadow-lg bg-slate-300 ">
+    <h3 class="my-2 text-2xl font-semibold text-center text-blue-800 ">Search Titles</h3>
+    <p class="px-3 text-blue-800 ">Search for a plot by title - The name you give to the plot that was just right for your stay.</p>
 
 <!-- in the action below add this{ url 'search_plots' } -->
     <div class="">
@@ -13,8 +13,8 @@
     </div>
 
 
-    <h3 class="mt-5 text-2xl font-semibold text-center text-blue-800 dark:text-gray-200">Campsite Search</h3>
-    <p class="px-3 text-blue-800 dark:text-gray-200">Search for plots on a specific campsite.</p>
+    <h3 class="mt-5 text-2xl font-semibold text-center text-blue-800 ">Campsite Search</h3>
+    <p class="px-3 text-blue-800 ">Search for plots on a specific campsite.</p>
     <div class="">
         <form class="flex flex-col  border-0 rounded-md" method="POST" action="{% url 'search-campsites' %}" type="search" placeholder="Campsite">
             {% csrf_token %}
@@ -25,8 +25,8 @@
     </div>
 
 
-    <h3 class="mt-4 text-2xl font-semibold text-center text-blue-800 dark:text-gray-200">Search by Country</h3>
-    <p class="px-3 text-blue-800 dark:text-gray-200">Heading off to France, Spain or Poland for a couple of days camping? Which plots have other campers recommended?</p>
+    <h3 class="mt-4 text-2xl font-semibold text-center text-blue-800 ">Search by Country</h3>
+    <p class="px-3 text-blue-800 ">Heading off to France, Spain or Poland for a couple of days camping? Which plots have other campers recommended?</p>
 
 <!-- In the action below add this { url 'search_countries' } - add back the %% -->
     <div class="">
